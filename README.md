@@ -14,7 +14,7 @@ yarn add github:subekti404dev/node-yahoo-finance
 const YahooFinance = require("node-yahoo-finance");
 
 // get quotes by keyword
-getQuotes("bank bri").then(console.log);
+YahooFinance.getQuotes("bank bri").then(console.log);
 // response
 [
   {
@@ -31,7 +31,7 @@ getQuotes("bank bri").then(console.log);
  ]
 
 // get quote info by symbol
-getInfo("tlkm.jk").then(console.log);
+YahooFinance.getInfo("tlkm.jk").then(console.log);
 // response
 { 
   currency: 'IDR',
