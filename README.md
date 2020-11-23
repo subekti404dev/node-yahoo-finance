@@ -3,7 +3,9 @@
 ## How to install
 ```javascript
 npm install github:subekti404dev/node-yahoo-finance
+```
 or
+```javascript
 yarn add github:subekti404dev/node-yahoo-finance
 ```
 
