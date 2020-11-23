@@ -1,8 +1,9 @@
 # node-yahoo-finance
 
 ## How to install
-```bash
+```javascript
 npm install github:subekti404dev/node-yahoo-finance
+or
 yarn add github:subekti404dev/node-yahoo-finance
 ```
 
