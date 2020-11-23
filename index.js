@@ -37,12 +37,12 @@ const getQuotes = async (keyword) => {
   } catch (error) {
     throw new Error("Unknow error");
   }
-  const quotes = _.get(resp, "data.quotes");
+  const quotes = _.filter(_.get(resp, "data.quotes", []), (q) => q.symbol.includes('.JK'));
   if (!quotes) throw new Error("No result");
   return quotes
 };
 
 // getQuotes("bank bri").then(console.log);
-// getInfo("bbca.jk").then(console.log);
+// getInfo("tlkm.jk").then(console.log);
 
 module.exports = {getInfo, getQuotes}
