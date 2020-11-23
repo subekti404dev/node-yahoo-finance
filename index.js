@@ -21,7 +21,7 @@ const getInfo = async (symbol) => {
     currentPrice: meta.regularMarketPrice,
     previousClosePrice: meta.previousClose,
     priceChanges: meta.regularMarketPrice - meta.previousClose,
-    percentageChanges: ((meta.regularMarketPrice - meta.previousClose) / meta.previousClose * 100).toFixed(3),
+    percentageChanges: ((meta.regularMarketPrice - meta.previousClose) / meta.previousClose * 100).toFixed(2),
     
   };
 };
