@@ -19,8 +19,30 @@ const getInfo = async (symbol) => {
     currency: meta.currency,
     symbol: meta.symbol,
     currentPrice: meta.regularMarketPrice,
-    previousClosePrice: meta.chartPreviousClose,
+    previousClosePrice: meta.previousClose,
+    priceChanges: meta.regularMarketPrice - meta.previousClose,
+    percentageChanges: ((meta.regularMarketPrice - meta.previousClose) / meta.previousClose * 100).toFixed(3),
+    
   };
 };
 
-getInfo("bris.jk").then(console.log);
+
+const getQuotes = async (keyword) => {
+  if (typeof keyword !== "string")
+    throw new Error("Keyword must be string");
+  const url = Config.BaseUrl + `v1/finance/search?q=${keyword}&quotesQueryId=tss_match_phrase_query&multiQuoteQueryId=multi_quote_single_token_query`;
+  let resp;
+  try {
+    resp = await axios.get(url);
+  } catch (error) {
+    throw new Error("Unknow error");
+  }
+  const quotes = _.get(resp, "data.quotes");
+  if (!quotes) throw new Error("No result");
+  return quotes
+};
+
+// getQuotes("bank bri").then(console.log);
+// getInfo("bbca.jk").then(console.log);
+
+module.exports = {getInfo, getQuotes}
