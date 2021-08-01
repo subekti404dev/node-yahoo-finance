@@ -1,5 +1,6 @@
 {
   "name": "node-yahoo-finance",
+  "version": "0.0.1", 
   "dependencies": {
     "axios": "^0.21.0",
     "lodash": "^4.17.20"
